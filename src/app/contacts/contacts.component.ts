@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
+import { MessageService} from '../message.service';
 
 @Component({
   selector: 'app-contacts',
@@ -22,6 +23,7 @@ export class ContactsComponent implements OnInit {
 
   onSelect(contact: Contact): void {
     this.selectedContact = contact;
+    this.selectedContact.edit = false;
   }
   getContacts(): void {
     this.contactService.getContacts().subscribe(contacts => this.contacts = contacts);

@@ -17,8 +17,9 @@ export class ContactService {
   constructor(private messageService: MessageService) { }
 
   getContacts(): Observable<Contact[]> {
-    // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('ContactService: fetched heroes');
+    // send the message _after_ fetching contacts
+    this.messageService.add('ContactService: Fetched Contacts');
+
     return of(contactList);
   }
 

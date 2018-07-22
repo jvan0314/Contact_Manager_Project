@@ -7,45 +7,54 @@
   <div><span>Email: </span>{{contact.email}}</div>
   <div><span>Phone Number: </span>{{contact.number}}</div>
   <div><span>Status: </span>{{contact.status}}</div>
+  <div><span>ButtonTest: </span>{{contact.edit}}</div>
 
-  <div>
-    <label>ID:
-      <input [(ngModel)]="contact.id" placeholder="ID">
-    </label>
-  </div>
-
-  <button class ='btn1' (click)="onToggle()">
+  <button class ='btn1' (click)="onEdit()">
     Edit Contact Information
   </button>
 
-  <div>
-    <label>First name:
-      <input [(ngModel)]="contact.firstName" placeholder="First name">
-    </label>
+  <div *ngIf="contact.edit">
+    <div>
+      <label>First name:
+        <input #newFirstName type="text" [ngModel]="contact.firstName" placeholder="New First name">
+      </label>
+    </div>
+
+    <div>
+      <label>Last name:
+        <input #newLastName type="text"  [ngModel]="contact.lastName" placeholder="New Last name">
+      </label>
+    </div>
+
+    <div>
+      <label>Email:
+        <input #newEmail type="text" [ngModel]="contact.email" placeholder="New Email">
+      </label>
+    </div>
+
+    <div>
+      <label>Phone Number:
+        <input #newNumber type="text"  [ngModel]="contact.number" placeholder="New Number">
+      </label>
+    </div>
+
+    <!-- <div>
+      <label>Status:
+        <input #newStatus type="text" [ngModel]="contact.status" placeholder="New Status">
+      </label>
+    </div> -->
+
+    <button class ='btn1' (click)="onChange(newFirstName, newLastName, newEmail, newNumber)">
+      Submit Changes
+    </button>
+
+    <button class ='btn2' (click)="onDelete()">
+      Delete
+    </button>
+
+    <button class ='btn2' (click)="activeToggle()">
+      Inactivate
+    </button>
   </div>
 
-  <div>
-    <label>Last name:
-      <input [(ngModel)]="contact.lastName" placeholder="Last name">
-    </label>
-  </div>
-
-  <div>
-    <label>Email:
-      <input [(ngModel)]="contact.email" placeholder="Email">
-    </label>
-  </div>
-
-  <div>
-    <label>Phone Number:
-      <input [(ngModel)]="contact.number" placeholder="Number">
-    </label>
-  </div>
-
-  <div>
-    <label>Status:
-      <input [(ngModel)]="contact.status" placeholder="Status">
-    </label>
-  </div>
 </div>
-
