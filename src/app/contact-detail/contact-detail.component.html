@@ -7,7 +7,6 @@
   <div><span>Email: </span>{{contact.email}}</div>
   <div><span>Phone Number: </span>{{contact.number}}</div>
   <div><span>Status: </span>{{contact.status}}</div>
-  <div><span>ButtonTest: </span>{{contact.edit}}</div>
 
   <button class ='btn1' (click)="onEdit()">
     Edit Contact Information
@@ -38,12 +37,6 @@
       </label>
     </div>
 
-    <!-- <div>
-      <label>Status:
-        <input #newStatus type="text" [ngModel]="contact.status" placeholder="New Status">
-      </label>
-    </div> -->
-
     <button class ='btn1' (click)="onChange(newFirstName, newLastName, newEmail, newNumber)">
       Submit Changes
     </button>
@@ -52,9 +45,14 @@
       Delete
     </button>
 
-    <button class ='btn2' (click)="activeToggle()">
+    <button *ngIf="contact.status == 'Active'; else notActive" class ='btn2' (click)="activeToggle()">
       Inactivate
     </button>
+    <ng-template #notActive>
+      <button class ='btn2' (click)="activeToggle()">
+        Activate
+      </button>
+    </ng-template>
   </div>
 
 </div>

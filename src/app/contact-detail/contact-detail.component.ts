@@ -10,25 +10,28 @@ import { Contact} from '../contact';
 
 export class ContactDetailComponent implements OnInit {
   @Input() contact: Contact;
-  constructor() {};
-  ngOnInit() {};
+  constructor() {}
+  ngOnInit() {}
   onEdit(){
     this.contact.edit = true;
   }
 
-  onChange(newFirstName, newLastName, newEmail, newNumber){
+  onChange(newFirstName, newLastName, newEmail, newNumber) {
     this.contact.firstName = newFirstName.value;
     this.contact.lastName = newLastName.value;
     this.contact.email = newEmail.value;
     this.contact.number = newNumber.value;
   }
 
-  activeToggle(){
-    if(this.contact.status == "Active"){
-      this.contact.status = "Inactive";
+  activeToggle() {
+    if (this.contact.status === 'Active') {
+      this.contact.status = 'Inactive';
+    } else {
+      this.contact.status = 'Active';
     }
-    if(this.contact.status == "Inactive"){
-      this.contact.status = "Active";
-    }
+  }
+
+  delete() {
+    // still ahve to implement delete function
   }
 }

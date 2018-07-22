@@ -5,5 +5,5 @@ export class Contact {
   email: string;
   number: string;
   status: string;
-  edit:false;
+  edit: boolean;
 }
