@@ -1,14 +1,14 @@
 import { Contact } from './contact';
 
 export const contactList: Contact[] = [
-  { id: 11, name: 'Ella Yoon' },
-  { id: 12, name: 'Johnny Appleseed' },
-  { id: 13, name: 'Barbarossa Pirate' },
-  { id: 14, name: 'Mango Stein' },
-  { id: 15, name: 'Fire Power' },
-  { id: 16, name: 'Iron Man' },
-  { id: 17, name: 'Iroha Isshiki' },
-  { id: 18, name: 'Thunder Bolt' },
-  { id: 19, name: 'Howard Genard' },
-  { id: 20, name: 'Jerome Kindred'}
-  ]
+  { id: 1, firstName: 'Ella', lastName: 'Yoon', email: 'ella@hotmail.com', number: '1111111111', status: 'Active'},
+  { id: 2, firstName: 'Johnny', lastName: 'Appleseed', email: 'apples@hotmail.com', number: '2222222222', status: 'Active' },
+  { id: 3, firstName: 'Barbarossa', lastName: 'Pirate', email: 'barb@hotmail.com', number: '3333333333', status: 'Inactive' },
+  { id: 4, firstName: 'Mango', lastName: 'Stein', email: 'mango@hotmail.com', number: '4444444444', status: 'Inactive' },
+  { id: 5, firstName: 'Fire', lastName: 'Power', email: 'fire@hotmail.com', number: '5555555555', status: 'Active' },
+  { id: 6, firstName: 'Iron', lastName: 'Man', email: 'tech@hotmail.com', number: '6666666666', status: 'Inactive' },
+  { id: 7, firstName: 'Iroha', lastName: 'Isshiki', email: 'iroha@hotmail.com', number: '7777777777', status: 'Active' },
+  { id: 8, firstName: 'Thunder', lastName: 'Bolt', email: 'lightning@hotmail.com', number: '8888888888', status: 'Inactive' },
+  { id: 9, firstName: 'Howard', lastName: 'Genard', email: 'howard@hotmail.com', number: '9999999999', status: 'Active' },
+  { id: 10, firstName: 'Jerome', lastName: 'Kindred', email: 'kindred@hotmail.com', number: '1234567890', status: 'Active'}
+  ];

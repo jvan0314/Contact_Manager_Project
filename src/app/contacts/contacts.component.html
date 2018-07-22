@@ -1,15 +1,15 @@
-<div style="float: left; width: 40%; background-color: aqua">
+<div class = "myContactList">
   <h2>My Contacts</h2>
   <ul class="contacts">
     <li *ngFor="let contact of contacts"
         [class.selected]="contact === selectedContact"
         (click)="onSelect(contact)">
-      <span class="badge">{{contact.id}}</span> {{contact.name}}
+      <span class="badge">{{contact.id}}</span> {{contact.firstName}} {{contact.lastName}}
     </li>
   </ul>
 </div>
 
-<div style="float: right; width: 60%;">
+<div class = "profile">
 <app-contact-detail [contact]="selectedContact"></app-contact-detail>
 </div>
 

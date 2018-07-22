@@ -1,11 +1,51 @@
 <div *ngIf="contact">
 
-  <h2>{{contact.name}}</h2>
-  <div><span>id: </span>{{contact.id}}</div>
+  <h2>{{contact.firstName}} {{contact.lastName}}</h2>
+  <div><span>ID: </span>{{contact.id}}</div>
+  <div><span>First Name: </span>{{contact.firstName}}</div>
+  <div><span>Last Name: </span>{{contact.lastName}}</div>
+  <div><span>Email: </span>{{contact.email}}</div>
+  <div><span>Phone Number: </span>{{contact.number}}</div>
+  <div><span>Status: </span>{{contact.status}}</div>
+
   <div>
-    <label>name:
-      <input [(ngModel)]="contact.name" placeholder="name">
+    <label>ID:
+      <input [(ngModel)]="contact.id" placeholder="ID">
     </label>
   </div>
 
+  <button class ='btn1' (click)="onToggle()">
+    Edit Contact Information
+  </button>
+
+  <div>
+    <label>First name:
+      <input [(ngModel)]="contact.firstName" placeholder="First name">
+    </label>
+  </div>
+
+  <div>
+    <label>Last name:
+      <input [(ngModel)]="contact.lastName" placeholder="Last name">
+    </label>
+  </div>
+
+  <div>
+    <label>Email:
+      <input [(ngModel)]="contact.email" placeholder="Email">
+    </label>
+  </div>
+
+  <div>
+    <label>Phone Number:
+      <input [(ngModel)]="contact.number" placeholder="Number">
+    </label>
+  </div>
+
+  <div>
+    <label>Status:
+      <input [(ngModel)]="contact.status" placeholder="Status">
+    </label>
+  </div>
 </div>
+
