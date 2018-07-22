@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '../contactInfo';
+import { Contact } from '../contact';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contacts',
@@ -8,18 +9,22 @@ import { Contact } from '../contactInfo';
 })
 export class ContactsComponent implements OnInit {
 
-  contact: Contact = {
-    id: 1,
-    firstName: 'Jacky',
-    lastName: 'Cheung',
-    email: 'Jacky.Cheung@gmail.com',
-    phoneNumber: '1234567890',
-    status: 'active'
-  }
+  selectedContact: Contact;
 
-  constructor() { }
+  contacts: Contact[];
+
+
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
+    this.getContacts();
+  }
+
+  onSelect(contact: Contact): void {
+    this.selectedContact = contact;
+  }
+  getContacts(): void {
+    this.contactService.getContacts().subscribe(contacts => this.contacts = contacts);
   }
 
 }
