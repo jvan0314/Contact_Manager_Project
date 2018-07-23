@@ -3,7 +3,7 @@ it should not be revealed yet until a specific contact's information needs
 to be changed.-->
 
 <div *ngIf="contact">
-
+<div class = 'profile'>
   <h2>{{contact.firstName}} {{contact.lastName}}</h2>
   <div class="info"><span>ID: </span>{{contact.id}}</div>
   <div class="info"><span>First Name: </span>{{contact.firstName}}</div>
@@ -71,5 +71,5 @@ to be changed.-->
       </button>
     </ng-template>
   </div>
-
+</div>
 </div>

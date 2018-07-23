@@ -1,6 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Contact } from './contact';
 
+//this class is used to simulate a data server
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const contacts = [
@@ -10,4 +11,3 @@ export class InMemoryDataService implements InMemoryDbService {
     return {contacts};
   }
 }
-

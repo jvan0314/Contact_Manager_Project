@@ -4,6 +4,10 @@
   float:right
 }
 
+.profile {
+  border-style: groove;
+}
+
 .btn1 {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -26,4 +30,5 @@
 .add{
   margin-left: .1em;
   margin-top: 1em;
+  margin-bottom: 1em;
 }

@@ -26,11 +26,13 @@ h2 {
 .myContactList {
   float: left;
   width: 40%;
+  border-style: groove;
 }
 
 .profile {
   float: right;
-  width: 60%;
+  width: 55%;
+
 }
 
 .contacts {

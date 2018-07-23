@@ -1,13 +1,12 @@
 :host {
   display: block;
   width: 40%;
-  float: left;
 }
 
 h2 {
-  color: red;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+  font-weight: normal;
 }
 body {
   margin: 2em;
@@ -18,13 +17,8 @@ body, input[text], button {
 }
 
 button.clear {
-  font-family: Arial;
+  margin-top: 1em;
   background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
 }
 button:hover {
   background-color: #cfd8dc;

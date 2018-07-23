@@ -16,7 +16,7 @@ export class Contact {
     this.number = number;
     this.status = status;
   }
-
+//this will create a new ID for new contacts added
   generateId(): number {
      Contact.numberOfContacts += 1;
      return Contact.numberOfContacts;

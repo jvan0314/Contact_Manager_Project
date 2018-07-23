@@ -5,22 +5,26 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+//contacts web API expects a special header in HTTP requests so the header is in httpOptions
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+//this allows the app module to not require the provider, this is to maintain a single provider
 @Injectable({
   providedIn: 'root'
 })
 
 export class ContactService {
 
+//URL to web API
   private contactsUrl = 'api/contacts';
 
   constructor(
     private messageService: MessageService,
     private http: HttpClient) {}
 
+//logs a ContactService message with the MessageService
   private log(message: string) {
     this.messageService.add(`ContactService: ${message}`);
   }
@@ -63,13 +67,10 @@ export class ContactService {
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       // send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
+      console.error(error);
       // better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
