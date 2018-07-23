@@ -26,7 +26,8 @@ export class ContactsComponent implements OnInit {
     this.selectedContact.edit = false;
   }
   getContacts(): void {
-    this.contactService.getContacts().subscribe(contacts => this.contacts = contacts);
+    this.contactService.getContacts()
+      .subscribe(contacts => this.contacts = contacts);
   }
 
 }

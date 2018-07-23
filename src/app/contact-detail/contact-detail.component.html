@@ -41,8 +41,15 @@
       Submit Changes
     </button>
 
-    <button class ='btn2' (click)="onDelete()">
-      Delete
+    <!--<button class ='btn2' (click)="onDelete()">-->
+      <!--Delete-->
+    <!--</button>-->
+
+    <button
+      class="btn2"
+      title="delete hero"
+      (click)="onDelete(contact)">
+      delete
     </button>
 
     <button *ngIf="contact.status == 'Active'; else notActive" class ='btn2' (click)="activeToggle()">
