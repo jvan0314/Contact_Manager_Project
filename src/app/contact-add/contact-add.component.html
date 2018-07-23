@@ -1,0 +1,45 @@
+<div *ngIf="addContact">
+  <h2>New Contact Information</h2>
+  <div class="info">
+    <label>First name:
+      <input #newFirstName type="text" placeholder="New First name">
+    </label>
+  </div>
+
+  <div class="info">
+    <label>Last name:
+      <input #newLastName type="text" placeholder="New Last name">
+    </label>
+  </div>
+
+  <div class="info">
+    <label>Email:
+      <input #newEmail type="text" placeholder="New Email">
+    </label>
+  </div>
+
+  <div class="info">
+    <label>Phone Number:
+      <input #newNumber type="text" placeholder="New Number">
+    </label>
+  </div>
+
+  <div class="info">
+    <label>Status:</label> {{this.status}}
+  </div>
+
+  <div>
+    <button class="status" (click)="status='Active'">
+      Active
+    </button>
+    <button class="status" (click)="status='Inactive'">
+      Inactive
+    </button>
+  </div>
+
+  <div class = "add">
+    <button (click)="add(newFirstName.value, newLastName.value, newEmail.value, newNumber.value, this.status)">
+      Add New Contact
+    </button>
+  </div>
+</div>

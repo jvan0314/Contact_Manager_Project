@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
-import { MessageService} from '../message.service';
 
 @Component({
   selector: 'app-contacts',
@@ -9,11 +8,9 @@ import { MessageService} from '../message.service';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
-
   selectedContact: Contact;
-
   contacts: Contact[];
-
+  addContact = false;
 
   constructor(private contactService: ContactService) { }
 
@@ -24,10 +21,25 @@ export class ContactsComponent implements OnInit {
   onSelect(contact: Contact): void {
     this.selectedContact = contact;
     this.selectedContact.edit = false;
+    this.addContact = false;
   }
+
   getContacts(): void {
     this.contactService.getContacts()
       .subscribe(contacts => this.contacts = contacts);
   }
 
+  updateContactCallback(c) {
+    this.contacts = c;
+  }
+
+  addContactCallback(c) {
+    this.contacts.push(c);
+  }
+
+  onAdd() {
+     this.selectedContact = null;
+     this.addContact = true;
+  }
 }
+

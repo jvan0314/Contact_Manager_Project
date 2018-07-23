@@ -21,47 +21,43 @@ export class ContactService {
     private messageService: MessageService,
     private http: HttpClient) {}
 
-  /** POST: add a new hero to the server */
+  private log(message: string) {
+    this.messageService.add(`ContactService: ${message}`);
+  }
+
+  // Post: add a new contact to the server and logging it
   addContact (contact: Contact): Observable<Contact> {
     return this.http.post<Contact>(this.contactsUrl, contact, httpOptions).pipe(
-      tap((hero: Contact) => this.log(`added Contact w/ id=${contact.id}`)),
+      tap(() => this.log(`Added contact with ID: ${contact.id}`)),
       catchError(this.handleError<Contact>('addContact'))
     );
   }
 
-  /** GET heroes from the server */
+  // Get: get list of contacts from the server
   getContacts (): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.contactsUrl)
       .pipe(
-        tap(contacts => this.log('fetched heroes')),
-        catchError(this.handleError('getHeroes', []))
+        tap(contacts => this.log('Fetched list of contacts')),
+        catchError(this.handleError('getContacts', []))
       );
   }
 
-  getContact(id: number): Observable<Contact> {
-    const url = `${this.contactsUrl}/${id}`;
-    return this.http.get<Contact>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Contact>(`getHero id=${id}`))
-    );
-  }
-
-  /** DELETE: delete the hero from the server */
+  // Delete: deletes the current contact from the server
   deleteContact (contact: Contact | number): Observable<Contact> {
     const id = typeof contact === 'number' ? contact : contact.id;
     const url = `${this.contactsUrl}/${id}`;
 
     return this.http.delete<Contact>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted contact id=${id}`)),
+      tap(_ => this.log(`Deleted contact ID: ${id}`)),
       catchError(this.handleError<Contact>('deleteContact'))
     );
   }
 
-  /** PUT: update the hero on the server */
+  // Put: updated the current contact's information
   updateContact (contact: Contact): Observable<any> {
     return this.http.put(this.contactsUrl, contact, httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${contact.id}`)),
-      catchError(this.handleError<any>('updateHero'))
+      tap(_ => this.log(`Updated contact ID: ${contact.id}`)),
+      catchError(this.handleError<any>('updateContact'))
     );
   }
 
@@ -79,9 +75,7 @@ export class ContactService {
     };
   }
 
-  private log(message: string) {
-    this.messageService.add(`ContactService: ${message}`);
-  }
+
 
 
 }

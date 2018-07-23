@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { ContactAddComponent } from './contact-add/contact-add.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     ContactsComponent,
     ContactDetailComponent,
     MessagesComponent,
+    ContactAddComponent,
   ],
   imports: [
     BrowserModule,

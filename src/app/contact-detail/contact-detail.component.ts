@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Contact} from '../contact';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 
 
@@ -11,18 +11,13 @@ import { ContactService } from '../contact.service';
 
 
 export class ContactDetailComponent implements OnInit {
-  contacts: Contact[];
 
   @Input() contact: Contact;
+  @Input() contacts: Contact[];
+  @Output() updateContact = new EventEmitter<Contact[]>();
 
   constructor(private contactService: ContactService) {}
   ngOnInit() {
-    this.getContacts();
-  }
-
-  getContacts(): void {
-    this.contactService.getContacts()
-      .subscribe(contacts => this.contacts = contacts);
   }
 
   onEdit() {
@@ -34,6 +29,7 @@ export class ContactDetailComponent implements OnInit {
     this.contact.lastName = newLastName.value;
     this.contact.email = newEmail.value;
     this.contact.number = newNumber.value;
+    this.contactService.updateContact(this.contact).subscribe();
   }
 
   activeToggle() {
@@ -42,10 +38,13 @@ export class ContactDetailComponent implements OnInit {
     } else {
       this.contact.status = 'Active';
     }
+    this.contactService.updateContact(this.contact).subscribe();
   }
 
   onDelete(contact: Contact): void {
+    this.contact = null;
     this.contacts = this.contacts.filter(h => h !== contact);
+    this.updateContact.emit(this.contacts);
     this.contactService.deleteContact(contact).subscribe();
   }
 }

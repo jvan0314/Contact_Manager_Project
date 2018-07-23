@@ -1,37 +1,37 @@
 <div *ngIf="contact">
 
   <h2>{{contact.firstName}} {{contact.lastName}}</h2>
-  <div><span>ID: </span>{{contact.id}}</div>
-  <div><span>First Name: </span>{{contact.firstName}}</div>
-  <div><span>Last Name: </span>{{contact.lastName}}</div>
-  <div><span>Email: </span>{{contact.email}}</div>
-  <div><span>Phone Number: </span>{{contact.number}}</div>
-  <div><span>Status: </span>{{contact.status}}</div>
+  <div class="info"><span>ID: </span>{{contact.id}}</div>
+  <div class="info"><span>First Name: </span>{{contact.firstName}}</div>
+  <div class="info"><span>Last Name: </span>{{contact.lastName}}</div>
+  <div class="info"><span>Email: </span>{{contact.email}}</div>
+  <div class="info"><span>Phone Number: </span>{{contact.number}}</div>
+  <div class="info"><span>Status: </span>{{contact.status}}</div>
 
   <button class ='btn1' (click)="onEdit()">
     Edit Contact Information
   </button>
 
   <div *ngIf="contact.edit">
-    <div>
+    <div class="info">
       <label>First name:
         <input #newFirstName type="text" [ngModel]="contact.firstName" placeholder="New First name">
       </label>
     </div>
 
-    <div>
+    <div class="info" >
       <label>Last name:
         <input #newLastName type="text"  [ngModel]="contact.lastName" placeholder="New Last name">
       </label>
     </div>
 
-    <div>
+    <div class="info">
       <label>Email:
         <input #newEmail type="text" [ngModel]="contact.email" placeholder="New Email">
       </label>
     </div>
 
-    <div>
+    <div class="info">
       <label>Phone Number:
         <input #newNumber type="text"  [ngModel]="contact.number" placeholder="New Number">
       </label>
@@ -41,23 +41,19 @@
       Submit Changes
     </button>
 
-    <!--<button class ='btn2' (click)="onDelete()">-->
-      <!--Delete-->
-    <!--</button>-->
-
     <button
       class="btn2"
       title="delete hero"
       (click)="onDelete(contact)">
-      delete
+      Delete
     </button>
 
     <button *ngIf="contact.status == 'Active'; else notActive" class ='btn2' (click)="activeToggle()">
-      Inactivate
+      Inactivate Status
     </button>
     <ng-template #notActive>
       <button class ='btn2' (click)="activeToggle()">
-        Activate
+        Activate Status
       </button>
     </ng-template>
   </div>

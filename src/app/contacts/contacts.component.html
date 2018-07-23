@@ -1,5 +1,10 @@
 <div class = "myContactList">
-  <h2>My Contacts</h2>
+  <div class = "listHeader">
+      <h2>My Contacts</h2>
+      <button class ='adding' (click)="onAdd()">
+        Add New Contact
+      </button>
+  </div>
   <ul class="contacts">
     <li *ngFor="let contact of contacts"
         [class.selected]="contact === selectedContact"
@@ -10,5 +15,13 @@
 </div>
 
 <div class = "profile">
-  <app-contact-detail [contact]="selectedContact"></app-contact-detail>
+  <app-contact-detail
+    [contact]="selectedContact"
+    [contacts]="contacts"
+    (updateContact)="updateContactCallback($event)">
+  </app-contact-detail>
+  <app-contact-add
+    [addContact] = "addContact"
+    (updateContact)="addContactCallback($event)">
+  </app-contact-add>
 </div>
