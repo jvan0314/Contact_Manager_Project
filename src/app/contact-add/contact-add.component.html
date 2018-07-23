@@ -1,3 +1,9 @@
+<!--adding a new contact form should only be revealed when the 'Add New Contact' button
+is clicked. The form then will contain the new contact's information and then
+use to create a new contact object to be pushed into the contact list-->
+
+<!--having the place holders in the input text boxes will help the user identify
+what kind of information needs to go into that specific box-->
 <div *ngIf="addContact">
   <h2>New Contact Information</h2>
   <div class="info">
@@ -28,6 +34,8 @@
     <label>Status:</label> {{this.status}}
   </div>
 
+  <!--I chose to make a contact's status to become active or not based on event binding
+  to prevent any accidents and improve user experience-->
   <div>
     <button class="status" (click)="status='Active'">
       Active
@@ -37,6 +45,7 @@
     </button>
   </div>
 
+  <!--add command button will take the new values-->
   <div class = "add">
     <button (click)="add(newFirstName.value, newLastName.value, newEmail.value, newNumber.value, this.status)">
       Add New Contact

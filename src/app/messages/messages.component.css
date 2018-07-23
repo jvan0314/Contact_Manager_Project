@@ -1,8 +1,7 @@
 :host {
-  background-color: lightblue;
   display: block;
   width: 40%;
-
+  float: left;
 }
 
 h2 {

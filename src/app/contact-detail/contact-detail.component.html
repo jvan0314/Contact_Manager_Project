@@ -1,3 +1,7 @@
+<!--I decided to inject the HTML for the contact's profile when selected because
+it should not be revealed yet until a specific contact's information needs
+to be changed.-->
+
 <div *ngIf="contact">
 
   <h2>{{contact.firstName}} {{contact.lastName}}</h2>
@@ -12,6 +16,9 @@
     Edit Contact Information
   </button>
 
+  <!--Editing a contact's information should only be available when a contact is chosen
+  and needing to change the contact's information is necessary to prevent any accidental
+  changes-->
   <div *ngIf="contact.edit">
     <div class="info">
       <label>First name:
@@ -37,10 +44,15 @@
       </label>
     </div>
 
+    <!--I chose to perform one way databinding over two way databinding because
+    the user should confirm the information they put in before making changes to the
+    contact's information-->
     <button class ='btn1' (click)="onChange(newFirstName, newLastName, newEmail, newNumber)">
       Submit Changes
     </button>
 
+    <!--Button deletes the current contact from the server and will log it to the
+    messaging service-->
     <button
       class="btn2"
       title="delete hero"
@@ -48,6 +60,8 @@
       Delete
     </button>
 
+    <!--I chose to use a button to toggle between activating a contact's profile
+    or inactivating it to improve on user experience.-->
     <button *ngIf="contact.status == 'Active'; else notActive" class ='btn2' (click)="activeToggle()">
       Inactivate Status
     </button>

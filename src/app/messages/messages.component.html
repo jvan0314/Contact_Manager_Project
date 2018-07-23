@@ -1,8 +1,10 @@
-<div *ngIf="messageService.messages.length">
+<!--This message service is used keep a log of changes the user made-->
+<div class = 'messages'>
 
   <h2>Messages</h2>
   <button class="clear"
           (click)="messageService.clear()">clear</button>
-  <div *ngFor='let message of messageService.messages'> {{message}} </div>
-
+  <div *ngIf="messageService.messages.length">
+    <div *ngFor='let message of messageService.messages'> {{message}} </div>
+  </div>
 </div>

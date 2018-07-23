@@ -1,3 +1,5 @@
+<!--I chose to always display the contact list, so the user can select a contact to
+see their information or change it-->
 <div class = "myContactList">
   <div class = "listHeader">
       <h2>My Contacts</h2>
@@ -5,6 +7,9 @@
         Add New Contact
       </button>
   </div>
+
+  <!--this displays the list of contacts containing just their ID and full name, so
+  the user can click on their 'badge' to reveal or edit the contact's information-->
   <ul class="contacts">
     <li *ngFor="let contact of contacts"
         [class.selected]="contact === selectedContact"
@@ -14,6 +19,7 @@
   </ul>
 </div>
 
+<!--the children components are rendered with information passed down from the parents-->
 <div class = "profile">
   <app-contact-detail
     [contact]="selectedContact"
