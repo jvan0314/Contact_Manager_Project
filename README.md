@@ -1,27 +1,21 @@
 # AngularProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project was generated with Angular version 6.0.8 using NodeJS version 10.7.0. The purpose of this project was to design and implement a production ready application for maintaining contact information. Angular was chosen because to develop a single web application that is very user-friendly.
 
-## Development server
+This project also uses services injected into the components to share information among the classes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project configures an in-memory web API to enable HTTP services to simulate a data server to display observables. The web application makes requests to and receive responses from the HttpClient and applies them to an in-memory data store.
 
-## Code scaffolding
+# Organization.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project consists of multiple components rendered in a root container. Each component is created in their own respective folders. Classes used to simulate a data server, contact list, message service were built in the 'app' root directory.
 
-## Build
+#Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+This web application requires NodeJS and was built with NodeJS version 10.7.0. If you do not have NodeJS installed, you can install it from https://nodejs.org/en/
 
-## Running unit tests
+Clone the repository from https://github.com/jvan0314/EvolentHealth_Project.git using 'git clone https://github.com/jvan0314/EvolentHealth_Project.git' or you can download the zip folder from GitHub and extract the zip folder.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Open a command line interface directed to the root location and run 'npm install' to build the node modules and install all the dependencies of the project.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run 'npm start' in the command line interface to build the application modules and have the Angular Live Development Server listening on localhost:4200, open your browser on http://localhost:4200/
